@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 const programs = [
@@ -123,10 +124,12 @@ const testimonials = [
 ];
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
       <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 h-20 shadow-md">
-        <div className="flex justify-between items-center w-full px-container-padding max-w-[1440px] mx-auto h-full gap-3">
+        <div className="flex justify-between items-center w-full px-container-padding max-w-[1440px] mx-auto h-full gap-3 relative">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-primary-container">
               fitness_center
@@ -135,7 +138,7 @@ function App() {
               24/7 FITNESS
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             <a
               className="text-primary-container font-label-bold border-b-2 border-primary-container pb-1"
               href="#"
@@ -168,14 +171,71 @@ function App() {
             </a>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            <button className="hidden sm:block text-on-surface font-label-bold px-4 py-2 hover:text-primary-container transition-colors">
+            <button className="hidden md:block text-on-surface font-label-bold px-4 py-2 hover:text-primary-container transition-colors">
               Login
             </button>
-            <button className="primary-gradient text-white font-label-bold px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all">
+            <button className="hidden sm:block primary-gradient text-white font-label-bold px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all">
               Join Now
+            </button>
+            <button
+              className="lg:hidden glass rounded-lg p-2.5 border border-white/20"
+              aria-label="Toggle menu"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              type="button"
+            >
+              <span className="material-symbols-outlined text-on-surface">
+                {menuOpen ? "close" : "menu"}
+              </span>
             </button>
           </div>
         </div>
+        {menuOpen ? (
+          <div className="lg:hidden absolute top-20 left-0 right-0 px-container-padding pb-3">
+            <div className="glass rounded-xl p-4 flex flex-col gap-3">
+              <a
+                className="font-label-bold text-primary-container"
+                href="#"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                className="font-label-bold text-on-surface-variant"
+                href="#programs"
+                onClick={() => setMenuOpen(false)}
+              >
+                Programs
+              </a>
+              <a
+                className="font-label-bold text-on-surface-variant"
+                href="#trainers"
+                onClick={() => setMenuOpen(false)}
+              >
+                Trainers
+              </a>
+              <a
+                className="font-label-bold text-on-surface-variant"
+                href="#plans"
+                onClick={() => setMenuOpen(false)}
+              >
+                Pricing
+              </a>
+              <a
+                className="font-label-bold text-on-surface-variant"
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <button className="text-left font-label-bold text-on-surface py-1">
+                Login
+              </button>
+              <button className="primary-gradient text-white font-label-bold px-4 py-3 rounded-xl shadow-lg">
+                Join Now
+              </button>
+            </div>
+          </div>
+        ) : null}
       </nav>
 
       <header className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -251,7 +311,7 @@ function App() {
             efficiency and results.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {programs.map((program) => (
             <div
               key={program.title}
@@ -352,13 +412,13 @@ function App() {
               Membership <span className="text-gradient">Plans</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter items-center">
             {plans.map((plan) => (
               <div
                 key={plan.name}
                 className={
                   plan.featured
-                    ? "relative primary-gradient p-[2px] rounded-xl blade-layout md:scale-105 shadow-2xl shadow-primary-container/20"
+                    ? "relative primary-gradient p-[2px] rounded-xl blade-layout lg:scale-105 shadow-2xl shadow-primary-container/20"
                     : "glass p-6 sm:p-10 rounded-xl blade-layout border-white/5"
                 }
               >
@@ -456,7 +516,7 @@ function App() {
         className="py-section-gap max-w-[1440px] mx-auto px-container-padding"
         id="contact"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-section-gap">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-section-gap">
           <div className="glass p-10 rounded-xl">
             <h3 className="font-headline-md text-headline-md mb-6 sm:mb-8">
               Quick <span className="text-gradient">BMI Calculator</span>
