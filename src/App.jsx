@@ -53,18 +53,16 @@ const features = [
 
 const trainers = [
   {
-    name: "Alex Rivera",
-    role: "CrossFit Lead",
+    name: "M. Rekshan",
+    role: "Strength & Body Building Coach",
     quote: "Pushing boundaries is a daily discipline, not a one-time event.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAxJabe9sD3DtrGxxe1d0SWHlXT-89CbcuLJWPlyckH0leIiPr-CKtYPyj1Ze0SNL6hWkE00AxxeotOooG3ebiuMdj26mmsn5dricjCC2HhsiOV1v3IV46JA0iUmc096G0M10E7xu0udHiDrAvd1chmsinxaomGMKMuWS5kOOcvWM4MGIW1R0CqVjNNtsf0dypDzuhK4MZfHBhh0kbeojBbt1QB6IcI8UVARY6t5bwZee9FkeJZgPn2fu_KcBpZHs-XyaliAnxXyjoK",
+    image: new URL("../assets/Rekshan.jpg", import.meta.url).href,
   },
   {
-    name: "Sarah Chen",
-    role: "Yoga & Pilates",
+    name: "V. Dinesh",
+    role: "Fitness Coach & Mobility Specialist",
     quote: "Balance is the foundation upon which all true strength is built.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBanR1bjqkuuFYh7vDdqOm3jZENmv1LgKsVlYzYsbyZWXmKr_xIvAUeZOkSTLiWAJwHcfNdUyiGYiDxXl_5IiHbTZp_Uf5mP8dzTHL22-YvBeMTlKe_PQWILZ2vQW7rYCQ1g31impXx5IGoVrP_ghiVJvTamicyg-x4FYhYOb_LBssNv8BqxF7Rf0Si3pw2c_1OPJ-VGyLJwatVb2rviOmwdebYg2l4YwWdfE6_F0YrZ9MQod24-ENO8hdD66JBLKg2ywUjzb-QTCvv",
+    image: new URL("../assets/Dinesh.jpg", import.meta.url).href,
   },
 ];
 
