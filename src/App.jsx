@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import RekshanImg from "./assets/Rekshan.jpg";
+import DineshImg from "./assets/Dinesh.jpg";
 
 const programs = [
   {
@@ -56,13 +58,13 @@ const trainers = [
     name: "M. Rekshan",
     role: "Strength & Body Building Coach",
     quote: "Pushing boundaries is a daily discipline, not a one-time event.",
-    image: new URL("../assets/Rekshan.jpg", import.meta.url).href,
+    image: RekshanImg,
   },
   {
     name: "V. Dinesh",
     role: "Fitness Coach & Mobility Specialist",
     quote: "Balance is the foundation upon which all true strength is built.",
-    image: new URL("../assets/Dinesh.jpg", import.meta.url).href,
+    image: DineshImg,
   },
 ];
 
